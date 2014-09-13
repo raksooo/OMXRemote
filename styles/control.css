@@ -1,0 +1,118 @@
+body {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	-webkit-user-select: none;
+}
+
+#subs {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+#subs li {
+    cursor: pointer;
+}
+
+#content {
+	width: 300px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+h1 {
+	display: block;
+	font-size: 1.3em;
+	text-align: center;
+	font-weight: normal;
+	margin-bottom: 0px;
+	word-wrap: break-word;
+}
+
+#back, #next, #previous {
+	font-size: 0.8em;
+	margin: auto 10px;
+}
+
+#back a, #next a, #previous a {
+	text-decoration: none;
+}
+
+#content ul a {
+	color: #333333;
+	text-decoration: none;
+}
+
+#content ul {
+	list-style-type: none;
+	padding: 0px;
+	position: relative;
+	overflow: hidden;
+}
+
+#content ul li {
+	float: left;
+	width: 28%;
+	height: 60px;
+	line-height: 60px;
+	margin: 6px 2%;
+	text-align: center;
+	border: 1px #333333 solid;
+	background: #EDFFEE;
+	cursor: pointer;
+}
+
+#content ul li:last-child {
+	width: 93.3333333%;
+	background: #F5FFF5;
+	font-weight: bold;
+}
+
+#content ul li:hover {
+	background: #D8EDD9;
+}
+
+#content ul li:active {
+	background: #EDD8D8;
+}
+
+#content ul li.nbe {
+	font-size: 1.2em;
+}
+
+#content ul li.small {
+	margin-bottom: 0px;
+	height: 26px;
+	line-height: 26px;
+}
+
+#content ul li.small.marginbottom {
+    margin-bottom: 6px;    
+}
+
+#content ul li.tv {
+    background: #888888;
+}
+
+#content ul li.tv:hover {
+    background: #777777;
+}
+
+#timeControl {
+	position: relative;
+	top: -10px;
+}
+
+#timeControl input#time {
+	position: relative;
+	top: 3px;
+	width: 60%;
+}
+
+#timeControl span {
+	font-size: 0.9em;
+}
