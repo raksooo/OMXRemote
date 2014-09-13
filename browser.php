@@ -20,15 +20,17 @@ sort($files, SORT_REGULAR);
 <title>film.raksooo.se</title>
 <?php include("helpfiles/head/head.html"); ?>
 <link href="styles/browser.css" type="text/css" rel="stylesheet" />
+<?php if (file_exists("download.html")) { ?>
 <link href="styles/download.css" type="text/css" rel="stylesheet" />
 <script src="scripts/download.js" type="text/javascript"></script>
+<?php } ?>
 </head>
 <body>
 	<h1><?=$dir->path?></h1>
 <?php
 		$nowplaying = str_replace("\ ", " ", file_get_contents("helpfiles/nowplaying"));
 		if (dirname($dir->path) === dirname($localpath)) { ?>
-                	<div id="nowplaying" onclick="location.href='?path=<?=urlencode($nowplaying)?>';"><strong>Remote/now playing</strong></div>
+                	<div id="nowplaying" onclick="location.href='?path=<?=urlencode(trim($nowplaying))?>';"><strong>Remote/now playing</strong></div>
 <?php	} ?>
         <ul>
 <?php	if (dirname($dir->path) !== dirname($localpath)) { ?>
@@ -47,7 +49,7 @@ sort($files, SORT_REGULAR);
         </ul>
 
 <?php
-    if (dirname($dir->path) === dirname($localpath)) {
+    if (dirname($dir->path) === dirname($localpath) && file_exists("download.html")) {
         include("download.html");
     }
 ?>

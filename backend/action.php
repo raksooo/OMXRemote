@@ -56,7 +56,6 @@ function sendKeys($string, $enter = false) {
 if ($_GET['action'] === "play") {
 	if (!$playing) {
 		changeStatus("playing");
-		file_put_contents("../helpfiles/nowplaying", $path);
 		echo "Playing";
 		$cmd = "sh www/film/backend/omxplayer+status.sh " . escapeshellarg($path);
         if (isset($_GET["subtitles"])) {
@@ -69,9 +68,9 @@ if ($_GET['action'] === "play") {
 		echo "Playing";
 		sendKeys("p");
 		resumeTime();
-        } else {
-                echo "Already playing!";
-        } 
+    } else {
+            echo "Already playing!";
+    } 
 } else if ($_GET['action'] === "pause" && playingCheck()) {
 	if ($status !== "paused") {
 		changeStatus("paused");
@@ -102,7 +101,7 @@ if ($_GET['action'] === "play") {
 			stepTime(600);
 			break;
         default:
-            exec($_GET['action']);
+            exec("scripts/cec.sh " . $_GET['action']);
 	}
 }
 ?>

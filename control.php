@@ -100,12 +100,12 @@ var path = "<?=urlencode($_GET['path'])?>";
 			<li class="small" onclick="action('m');">_&gt;</li>
 			<li class="small marginbottom" onclick="action('d');">_--</li>
 			<li class="small marginbottom" onclick="action('f');">_++</li>
-			<li class="small tv" onclick="action('tv on');">On</li>
-			<li class="small tv" onclick="action('tv off');">Off</li>
-			<li class="small tv" onclick="action('tv pi');">Pi</li>
-			<li class="small marginbottom tv" onclick="action('tv vup');">+</li>
-			<li class="small marginbottom tv" onclick="action('tv vod');">-</li>
-			<li class="small marginbottom tv" onclick="action('tv mute');">Mute</li>
+			<li class="small tv" onclick="action('on');">On</li>
+			<li class="small tv" onclick="action('off');">Off</li>
+			<li class="small tv" onclick="action('pi');">Pi</li>
+			<li class="small marginbottom tv" onclick="action('vup');">+</li>
+			<li class="small marginbottom tv" onclick="action('vod');">-</li>
+			<li class="small marginbottom tv" onclick="action('mute');">Mute</li>
 <?php if (isset($next) && !isset($_GET["autonext"])) { ?>
             <li onclick="location.href='?path=<?=$_GET["path"]?>&autonext';">auto</li>
 <?php } else if (isset($next)) { ?>
@@ -117,11 +117,13 @@ var path = "<?=urlencode($_GET['path'])?>";
                 }
             ?>></li>
 		</ul>
+<?php if ($_GET["path"] != "YouTube") { ?>
 		<div id="timeControl">
 			<span></span>
 			<input type="range" id="time" min="0" disabled="disabled" />
 			<span></span>
 		</div>
+<?php } ?>
 	</div>
 </body>
 </html>

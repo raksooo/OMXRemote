@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "$1" > www/film/helpfiles/nowplaying
 if [ $# -eq 2 ]
     then
         omxplayer -r -o hdmi "$1" --subtitles "$2" --no-ghost-box
