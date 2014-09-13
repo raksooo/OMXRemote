@@ -2,3 +2,4 @@ download.html
 backend/downloadhandler.php
 scripts/download.js
 styles/download.css
+helpfiles/*
