@@ -25,7 +25,7 @@
             $subtitles[] = $dir->path . "/" . $file;
         }
     }
-    $subtitles[] = "null";
+    $subtitles[] = "No subtitles";
 
     function sendKeys($string, $enter = false) {
         $cmd = "tmux -S helpfiles/tmux_film_socket send-keys -t film \"" . $string . "\" " . ($enter ? "C-m" : "");
@@ -39,7 +39,7 @@
         sendKeys("q", false);
         sendKeys("", true);
         sleep(1);
-    }       
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,15 +66,17 @@ var path = "<?=urlencode($_GET['path'])?>";
 
 <?php if (sizeof($subtitles) > 1) {?>
     <div id="subs">
-        <ul>
-            <?php foreach ($subtitles as $sub) { ?>
-                <li onclick="setSub('<?=$sub?>')"><?=$sub?></li>
-            <?php } ?>
-        <ul>
+        <div class="content">
+            <ul>
+                <?php foreach ($subtitles as $sub) { ?>
+                    <li onclick="setSub('<?=$sub?>')"><?=basename($sub)?></li>
+                <?php } ?>
+            <ul>
+        </div>
     </div>
 <?php } ?>
 
-	<div id="content">
+	<div id="control" class="content">
 		<h1><?=basename($_GET['path'])?></h1>
 <?php		if (isset($prev)) { ?>
 			<span id="back"><a href="?path=<?=$prev?>">prev</a></span>
