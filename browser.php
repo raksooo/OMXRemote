@@ -1,5 +1,5 @@
 <?php
-$localpath = "/home/rascal/downloads/";
+$localpath = "/home/" . get_current_user() . "/downloads/";
 
 if (isset($_GET['path']) && $_GET['path']{strlen($_GET['path'])-1} !== "/") {
 	$_GET['path'] .= "/";
@@ -28,9 +28,9 @@ sort($files, SORT_REGULAR);
 <body>
 	<h1><?=$dir->path?></h1>
 <?php
-		$nowplaying = str_replace("\ ", " ", file_get_contents("helpfiles/nowplaying"));
+		$nowplaying = trim(str_replace("\ ", " ", file_get_contents("helpfiles/nowplaying")));
 		if (dirname($dir->path) === dirname($localpath)) { ?>
-                	<div id="nowplaying" onclick="location.href='?path=<?=urlencode(trim($nowplaying))?>';"><strong>Remote/now playing</strong></div>
+                	<div id="nowplaying" onclick="location.href='?path=<?=urlencode($nowplaying)?>';"><strong>Remote/now playing</strong></div>
 <?php	} ?>
         <ul>
 <?php	if (dirname($dir->path) !== dirname($localpath)) { ?>

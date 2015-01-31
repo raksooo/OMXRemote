@@ -1,4 +1,6 @@
 <?php
+$scriptlocation = "/home/rascal/scripts";
+
 if (substr($_SERVER['REMOTE_ADDR'], 0, 10) !== "192.168.1.") {
 	die("Wrong wifi!");
 }
@@ -18,18 +20,18 @@ $actionReturns = Array(	"Left" => "Seek -30",
                         "n" => "Previous subtitle stream",
                         "d" => "Subtitle delay -250 ms",
                         "f" => "Subtitle delay +250 ms",
-                        "tv on" => "TV powered on",
-                        "tv off" => "TV in standby",
-                        "tv pi" => "TV pi",
-                        "tv vup" => "TV volume up",
-                        "tv vod" => "TV volume down",
-                        "tv mute" => "TV mute");
+                        "on" => "TV powered on",
+                        "off" => "TV in standby",
+                        "pi" => "TV pi",
+                        "vup" => "TV volume up",
+                        "vod" => "TV volume down",
+                        "mute" => "TV mute");
 
-$path = $_GET["path"];
+$path = isset($_GET["path"]) ? $_GET['path'] : trim(file_get_contents("../helpfiles/nowplaying"));
 $status = file_get_contents("../helpfiles/status");
 $playing = trim($status) !== "not playing";
 
-$dir = dir(dirname($_GET['path']));
+$dir = dir(dirname($path));
 
 function changeStatus($newStatus) {
 	global $status, $playing;
@@ -53,6 +55,13 @@ function sendKeys($string, $enter = false) {
 	return shell_exec($cmd);
 }
 
+function notifyWatch() {
+    if (file_exists("notifywatchurl.txt")) {
+        $url = trim(file_get_contents("notifywatchurl.txt"));
+        file_get_contents($url);
+    }
+}
+
 if ($_GET['action'] === "play") {
 	if (!$playing) {
 		changeStatus("playing");
@@ -63,6 +72,8 @@ if ($_GET['action'] === "play") {
         }
 		sendKeys($cmd, true);
 		startTime($path);
+        
+        notifyWatch();
 	} else if ($status !== "playing") {
         changeStatus("playing");
 		echo "Playing";
@@ -84,9 +95,9 @@ if ($_GET['action'] === "play") {
 	echo "Stopped";
 	sendKeys("q", false);
     sendKeys("", true);
-} else if ($_GET['action'] !== "pause" && $_GET['action'] !== "stop" && playingCheck()) {
+} else if ($_GET['action'] !== "pause" && $_GET['action'] !== "stop" && playingCheck() && $_GET['action'] != "on" && $_GET['action'] != "off" && $_GET['action'] != "vup" && $_GET['action'] != "vod" && $_GET['action'] != "pi" && $_GET['action'] != "mute") {
 	echo $actionReturns[$_GET['action']];
-	sendKeys($_GET['action']);
+    sendKeys($_GET['action']);
 	switch($_GET['action']) {
 		case "Left":
 			stepTime(-30);
@@ -101,7 +112,9 @@ if ($_GET['action'] === "play") {
 			stepTime(600);
 			break;
         default:
-            exec("scripts/cec.sh " . $_GET['action']);
 	}
+} else {
+	echo " " . $actionReturns[$_GET['action']];
+    exec("sh " . $scriptlocation . "/cec.sh " . $_GET['action']);
 }
 ?>
