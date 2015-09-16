@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OMXRemote</title>
+        <link href="main.css" rel="stylesheet" />
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div id="fileBrowser">
+            <div class="title"></div>
+            <div id="dirContent"></div>
+            <div id="download">
+                <form onsubmit="download.download(event, this); return false;">
+                    <input type="text" name="downloadUrl" />
+                    <input type="submit" value="Download!" />
+                </form>
+            </div>
+        </div>
+        <div id="subtitlePicker">
+            <div class="subtitleTitle">Pick subtitle</div>
+            <div id="subtitles"></div>
+        </div>
+        <div id="videoControls">
+            <div class="title"></div>
+            <div class="back" onclick="main.navigate('..');">&#8592; Back</div>
+            <div id="controls">
+                <ul>
+                    <li onclick="main.action('pause');">&#x25b6;/&#10074;&#10074;</li>
+                    <li class="stop" onclick="main.action('stop');">&#x25a0;</li>
+                    <li onclick="main.action('command', 'Left');">&#x25c0;&#x25c0;</li>
+                    <li onclick="main.action('command', 'Right');">&#x25b6;&#x25b6;</li>
+                    <li onclick="main.action('command', 'Down');">&#x25c0;&#x25c0;&#x25c0;</li>
+                    <li onclick="main.action('command', 'Up');">&#x25b6;&#x25b6;&#x25b6;</li>
+                    <li class="text" onclick="main.action('command', '+');">+</li>
+                    <li class="text" onclick="main.action('command', '-');">-</li>
+                    <li class="text" onclick="main.action('command', 's');">_</li>
+                    <li class="text" onclick="main.action('command', 'd');">&lt;_</li>
+                    <li class="text" onclick="main.action('command', 'f');">_&gt;</li>
+                    <li id="status"></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

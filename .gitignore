@@ -1,6 +1,4 @@
-backend/notifywatchurl.txt
-download.html
-backend/downloadhandler.php
-scripts/download.js
-styles/download.css
-helpfiles/*
+notifywatchurl.txt
+node_modules
+download.js
+.sass-cache/

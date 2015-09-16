@@ -1,0 +1,22 @@
+{
+  "name": "OMXRemote",
+  "devDependencies": {
+    "babel": "latest",
+    "babelify": "^6.3.0",
+    "path": "latest",
+    "express": "latest",
+    "express-ws": "latest",
+    "node-persist": "latest",
+    "serve-static": "latest",
+    "mime": "latest",
+    "sprintf-js": "latest"
+  },
+  "scripts": {
+    "build": "browserify src/scripts/main.js -t babelify -o build/app.js",
+    "watch-js": "watchify src/scripts/client/main.js -t babelify -o build/app.js",
+    "watch-css": "sass --watch src/static/styles/main.scss:build/main.css",
+    "watch": "npm run watch-js & npm run watch-css & npm start",
+    "buildwatch": "babel src/scripts/server -d build/server --watch & npm run watch-js",
+    "start": "babel-node src/scripts/server/main.js"
+  }
+}

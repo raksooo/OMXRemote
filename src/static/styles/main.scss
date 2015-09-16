@@ -1,0 +1,183 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,300italic,300,200italic,200);
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.title, .subtitleTitle {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.7em;
+    background: #EF5350;
+    color: white;
+}
+
+.back {
+        font-size: 1.1em;
+        background: #546E7A;
+        color: white;
+        font-weight: 300;
+        cursor: pointer;
+        padding: 15px 20px;
+}
+
+#fileBrowser, #subtitlePicker {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 1.1em;
+        font-weight: 300;
+
+        li {
+            padding: 15px 20px;
+            cursor: pointer;
+
+            &:nth-child(2n) {
+                background: #ECEFF1;
+            }
+
+            &:nth-child(2n+1) {
+                background: #CFD8DC;
+            }
+
+            &:first-child {
+                background: #546E7A;
+                color: white;
+            }
+        }
+    }
+}
+
+#fileBrowser {
+    ul li:nth-child(2) {
+        background: #90A4AE;
+        font-weight: 400;
+
+        span {
+            font-style: italic;
+        }
+    }
+
+    #download {
+        $input-height: 35px;
+        $input-border: 1px #BBBBBB solid;
+        $input-font-size: 1.1em;
+
+        position: relative;
+        width: 300px;
+        margin: 30px auto;
+
+        input {
+            font-size: $input-font-size;
+        }
+
+        input[type='text'] {
+            height: $input-height;
+            border: $input-border;
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 5px;
+            padding-right: 10px;
+        }
+
+        input[type='submit'] {
+            height: $input-height - 2px;
+            position: absolute;
+            background: #69F0AE;
+            border: none;
+            border-left: $input-border;
+            margin: 0;
+            top: 1px;
+            right: 1px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+    }
+}
+
+#videoControls {
+    #controls {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                float: left;
+                width: 30%;
+                height: 60px;
+                text-align: center;
+                line-height: 60px;
+                cursor: pointer;
+
+                &:active {
+                    opacity: 0.7;
+                }
+
+                &.text {
+                    font-size: 1.4em;
+                    font-weight: 400;
+                }
+
+                &.stop {
+                    font-size: 2.3em;
+                    line-height: 52px;
+                }
+
+                &#status {
+                    background: #B9F6CA;
+                    font-style: italic;
+
+                    &.invalid {
+                        background: #FF8A80;
+                    }
+                }
+
+                &:nth-child(1) {
+                    background: #FF4081;
+                }
+                &:nth-child(2) {
+                    background: #448AFF;
+                }
+                &:nth-child(3) {
+                    background: #C6FF00;
+                }
+                &:nth-child(4) {
+                    background: #B2FF59;
+                }
+                &:nth-child(5) {
+                    background: #8D6E63;
+                }
+                &:nth-child(6) {
+                    background: #69F0AE;
+                }
+                &:nth-child(7) {
+                    background: #E040FB;
+                }
+                &:nth-child(8) {
+                    background: #7C4DFF;
+                }
+                &:nth-child(9) {
+                    background: #64FFDA;
+                }
+                &:nth-child(10) {
+                    background: #FFFF00;
+                }
+                &:nth-child(11) {
+                    background: #FFAB40;
+                }
+            }
+        }
+    }
+}
+

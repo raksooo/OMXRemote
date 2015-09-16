@@ -1,0 +1,122 @@
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,300italic,300,200italic,200);
+html, body {
+  padding: 0;
+  margin: 0; }
+
+* {
+  font-family: 'Titillium Web', sans-serif; }
+
+.title, .subtitleTitle {
+  text-align: center;
+  padding: 10px;
+  font-size: 1.7em;
+  background: #EF5350;
+  color: white; }
+
+.back {
+  font-size: 1.1em;
+  background: #546E7A;
+  color: white;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 15px 20px; }
+
+#fileBrowser ul, #subtitlePicker ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 300; }
+  #fileBrowser ul li, #subtitlePicker ul li {
+    padding: 15px 20px;
+    cursor: pointer; }
+    #fileBrowser ul li:nth-child(2n), #subtitlePicker ul li:nth-child(2n) {
+      background: #ECEFF1; }
+    #fileBrowser ul li:nth-child(2n+1), #subtitlePicker ul li:nth-child(2n+1) {
+      background: #CFD8DC; }
+    #fileBrowser ul li:first-child, #subtitlePicker ul li:first-child {
+      background: #546E7A;
+      color: white; }
+
+#fileBrowser ul li:nth-child(2) {
+  background: #90A4AE;
+  font-weight: 400; }
+  #fileBrowser ul li:nth-child(2) span {
+    font-style: italic; }
+#fileBrowser #download {
+  position: relative;
+  width: 300px;
+  margin: 30px auto; }
+  #fileBrowser #download input {
+    font-size: 1.1em; }
+  #fileBrowser #download input[type='text'] {
+    height: 35px;
+    border: 1px #BBBBBB solid;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 5px;
+    padding-right: 10px; }
+  #fileBrowser #download input[type='submit'] {
+    height: 33px;
+    position: absolute;
+    background: #69F0AE;
+    border: none;
+    border-left: 1px #BBBBBB solid;
+    margin: 0;
+    top: 1px;
+    right: 1px;
+    padding-left: 12px;
+    padding-right: 12px; }
+
+#videoControls #controls {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto; }
+  #videoControls #controls ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+    #videoControls #controls ul li {
+      float: left;
+      width: 30%;
+      height: 60px;
+      text-align: center;
+      line-height: 60px;
+      cursor: pointer; }
+      #videoControls #controls ul li:active {
+        opacity: 0.7; }
+      #videoControls #controls ul li.text {
+        font-size: 1.4em;
+        font-weight: 400; }
+      #videoControls #controls ul li.stop {
+        font-size: 2.3em;
+        line-height: 52px; }
+      #videoControls #controls ul li#status {
+        background: #B9F6CA;
+        font-style: italic; }
+        #videoControls #controls ul li#status.invalid {
+          background: #FF8A80; }
+      #videoControls #controls ul li:nth-child(1) {
+        background: #FF4081; }
+      #videoControls #controls ul li:nth-child(2) {
+        background: #448AFF; }
+      #videoControls #controls ul li:nth-child(3) {
+        background: #C6FF00; }
+      #videoControls #controls ul li:nth-child(4) {
+        background: #B2FF59; }
+      #videoControls #controls ul li:nth-child(5) {
+        background: #8D6E63; }
+      #videoControls #controls ul li:nth-child(6) {
+        background: #69F0AE; }
+      #videoControls #controls ul li:nth-child(7) {
+        background: #E040FB; }
+      #videoControls #controls ul li:nth-child(8) {
+        background: #7C4DFF; }
+      #videoControls #controls ul li:nth-child(9) {
+        background: #64FFDA; }
+      #videoControls #controls ul li:nth-child(10) {
+        background: #FFFF00; }
+      #videoControls #controls ul li:nth-child(11) {
+        background: #FFAB40; }
+
+/*# sourceMappingURL=main.css.map */
