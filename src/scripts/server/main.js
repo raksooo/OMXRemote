@@ -9,7 +9,7 @@ import {Download} from './download.js';
 
 let app = express();
 let expressWs = express_ws(app);
-global.dirname = __dirname + '/../..';
+global.dirname = process.cwd();
 
 app.use('/', serveStatic(dirname + "/src/static/"));
 app.use('/', serveStatic(dirname + "/build/"));

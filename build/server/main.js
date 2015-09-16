@@ -30,7 +30,7 @@ var _downloadJs = require('./download.js');
 
 var app = (0, _express2['default'])();
 var expressWs = (0, _expressWs2['default'])(app);
-global.dirname = __dirname + '/../..';
+global.dirname = process.cwd();
 
 app.use('/', (0, _serveStatic2['default'])(dirname + "/src/static/"));
 app.use('/', (0, _serveStatic2['default'])(dirname + "/build/"));
