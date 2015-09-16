@@ -3,3 +3,4 @@ node_modules
 download.js
 .sass-cache/
 *.swp
+*.log
